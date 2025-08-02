@@ -1,57 +1,115 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap");
 
 :root {
-  --White: hsl(0, 0%, 100%);
-  --LightGray: hsl(212, 45%, 89%);
-  --GrayishBlue: hsl(220, 15%, 55%);
-  --DarkBlue: hsl(218, 44%, 22%);
+    --White: hsl(0, 0%, 100%);
+    --LightGray: hsl(212, 45%, 89%);
+    --GrayishBlue: hsl(220, 15%, 55%);
+    --DarkBlue: hsl(218, 44%, 22%);
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  background-color: var(--LightGray);
-  font-family: "Outfit", sans-serif;
+    background-color: var(--LightGray);
+    font-family: "Outfit", sans-serif;
 }
+
+.cards-container {
+    display: flex;
+    width: 1200px;
+    /*se centra de forma automatica el flex, cero arriba y abajo, auto en los lados*/
+    margin: 0 auto;
+}
+
 .main-container {
-  background-color: var(--White);
-  width: 320px;
-  height: 500px;
-  margin: 60px auto;
-  padding: 16px;
-  border-radius: 16px;
+    background-color: var(--White);
+    width: 320px;
+    height: 500px;
+    margin: 60px auto;
+    padding: 16px;
+    border-radius: 16px;
+    transition: 300ms;
+}
+
+/*como actua al pasar el raton por encima*/
+.main-container:hover {
+    cursor: pointer;
+    box-shadow: 10px 10px 10px;
+    transition: 300ms;
+    /*al poner el margin-top on algunos px menos, da la sensación de que se eleva la card*/
+    margin-top: 50px;
 }
 
 .img-container {
-  background-image: url(/images/image-qr-code.png);
-  background-size: cover;
-  width: 100%;
-  height: 288px;
-  border-radius: 16px;
-  margin-bottom: 24px;
+    background-image: url(/images/image-qr-code.png);
+    background-size: cover;
+    width: 100%;
+    height: 288px;
+    border-radius: 16px;
+    margin-bottom: 24px;
+    animation: UpCenter 500ms none;
 }
 
 h1 {
-  color: var(--DarkBlue);
-  font-size: 23px;
-  text-align: center;
-  margin-bottom: 24px;
-}
-p {
-  font-size: 15px;
-  color: var(--GrayishBlue);
-  text-align: center;
+    color: var(--DarkBlue);
+    font-size: 23px;
+    text-align: center;
+    margin-bottom: 24px;
+    animation: leftCenter 500ms none;
 }
 
+p {
+    font-size: 15px;
+    color: var(--GrayishBlue);
+    text-align: center;
+    animation: rightCenter 500ms none;
+}
+
+/*-----footer-----*/
 .attribution {
-  font-size: 16px;
-  text-align: center;
+    font-size: 18px;
+    text-align: center;
 }
 
 .attribution a {
-  color: hsl(228, 45%, 44%);
+    color: hsl(228, 45%, 44%);
+}
+
+/*---------Animaciones-----------*/
+/*Animacion que mueve el elemento de arriba hacia su posicion*/
+@keyframes UpCenter {
+    0% {
+        transform: translateY(-500px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/*animacion de izquierda al centro*/
+@keyframes leftCenter {
+    0% {
+        transform: translateX(-500px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+
+}
+
+/*animacion de derecha al centro*/
+@keyframes rightCenter {
+    0% {
+        transform: translateX(500px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
 }
